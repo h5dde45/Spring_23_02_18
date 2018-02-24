@@ -1,8 +1,14 @@
 package entity;
 
+import java.util.Set;
+
 public class Project {
     private int id;
     private String title;
+    private Set<Employee> employees;
+
+    public Project() {
+    }
 
     public int getId() {
         return id;
@@ -20,22 +26,12 @@ public class Project {
         this.title = title;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Project project = (Project) o;
-
-        if (id != project.id) return false;
-        return title != null ? title.equals(project.title) : project.title == null;
+    public Set<Employee> getEmployees() {
+        return employees;
     }
 
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        return result;
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override
